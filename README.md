@@ -217,3 +217,77 @@ nProgress.done()
 // 在vite-env.d.ts中添加
 declare module 'nprogress'
 ```
+
+### 配置全局样式
+
+- 公共样式表
+
+```scss
+/*全局公共样式表*/
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+
+  ul, li {
+    list-style: none;
+  }
+
+}
+
+/*设置滚动条样式*/
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(26, 25, 25, 0.3);
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+/*设置进度条颜色  不配置时为默认颜色*/
+#nprogress .bar {
+  /*background: rgba(41, 236, 127, 0.5) !important;*/
+}
+```
+
+- reset.css
+
+```shell
+npm install reset.css --save
+```
+
+- animate.css
+
+```shell
+npm install animate.css --save
+```
+
+- 使用
+
+```ts
+// main.ts
+import {createApp} from 'vue'
+import App from './App.vue'
+import './assets/stytle/global.scss'
+import 'reset.css'
+import 'animate.css'
+
+const app = createApp(App)
+
+app.mount('#app')
+```

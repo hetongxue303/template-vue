@@ -291,3 +291,27 @@ const app = createApp(App)
 
 app.mount('#app')
 ```
+
+### 配置windicss
+
+- 安装
+
+```shell
+npm install -D vite-plugin-windicss windicss
+```
+
+- 配置
+
+```ts
+//  在vite.config.ts中添加下列配置
+import WindiCSS from 'vite-plugin-windicss'
+
+export default {
+    plugins: [
+        WindiCSS(),
+    ],
+}
+
+// 在main.ts中引入样式文件
+import 'virtual:windi.css'
+```

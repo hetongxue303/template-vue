@@ -64,3 +64,108 @@ export default defineConfig({
   }
 }
 ```
+
+### 配置Typescript
+
+```json5
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "useDefineForClassFields": true,
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "strict": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "skipLibCheck": true,
+    "types": [
+      "node",
+      "vite/client"
+    ]
+  },
+  "skipLibCheck": true,
+  "noImplicitAny": true,
+  "noImplicitThis": true,
+  "strictNullChecks": true,
+  "suppressImplicitAnyIndexErrors": true,
+  "baseUrl": ".",
+  "paths": {
+    "@": [
+      "src"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
+```
+
+### 配置sass
+
+- 安装依赖
+
+```shell
+npm install sass sass-loader -D
+```
+
+### 配置vue-router
+
+- 安装依赖
+
+```shell
+npm install vue-router@4
+```
+
+- 配置router
+
+```ts
+// src/router/index.ts
+import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router'
+
+const routes: Array<RouteRecordRaw> = []
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes
+})
+
+router.beforeEach((to, from, next) => {
+    next()
+})
+
+router.afterEach(() => {
+})
+
+export default router
+```
+
+- 全局注册
+
+```ts
+// main.ts
+import {createApp} from 'vue'
+import App from './App.vue'
+import router from './router'
+
+const app = createApp(App)
+
+app.use(router).mount('#app')
+```

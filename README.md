@@ -381,3 +381,48 @@ npm install qs
 //  vite-env.d.ts
 declare module 'qs'
 ```
+
+### 配置pinia
+
+- 安装依赖
+
+```shell
+npm install pinia
+```
+
+- 基本配置
+
+```ts
+//  store/index.ts
+import {defineStore} from 'pinia'
+
+interface mainType {
+}
+
+export const useMainStore = defineStore('main', {
+    // 存储全局状态
+    state: (): mainType => {
+        return {}
+    },
+
+    // 封装计算属性 具有缓存功能
+    getters: {},
+
+    // 封装业务逻辑 修改state
+    actions: {}
+})
+```
+
+- 全局注册
+
+```ts
+// main.ts
+import {createApp} from 'vue'
+import App from './App.vue'
+import {createPinia} from 'pinia'
+
+const app = createApp(App)
+
+app.use(createPinia())
+    .mount('#app')
+```

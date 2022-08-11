@@ -169,3 +169,51 @@ const app = createApp(App)
 
 app.use(router).mount('#app')
 ```
+
+### 配置nProgress
+
+- 安装
+
+```shell
+npm install nprogress --save
+```
+
+- 配置
+
+```ts
+import * as nProgress from 'nprogress'
+
+nProgress.configure({
+    ease: 'linear',
+    speed: 500,
+    showSpinner: false  // 是否使用进度环
+})
+
+export default nProgress
+
+
+// 在mian.ts中引入样式和nProgress
+import 'nprogress/nprogress.css'
+
+// 使用
+import nProgress from './plugins/nProgress'
+
+nProgress.start()
+nProgress.done()
+```
+
+- 配置进度条颜色
+
+```css
+/*设置进度条颜色  不配置时为默认颜色*/
+#nprogress .bar {
+    background: red !important;
+}
+```
+
+*解决引用错误问题*
+
+```ts
+// 在vite-env.d.ts中添加
+declare module 'nprogress'
+```

@@ -11,8 +11,10 @@
   "dependencies": {
     "@element-plus/icons-vue": "^2.0.8",
     "animate.css": "^4.1.1",
+    "axios": "^0.27.2",
     "element-plus": "^2.2.12",
     "nprogress": "^0.2.0",
+    "qs": "^6.11.0",
     "reset.css": "^2.0.2",
     "vue": "^3.2.37",
     "vue-router": "^4.1.3"

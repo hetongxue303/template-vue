@@ -363,3 +363,21 @@ const app = createApp(App)
 app.use(ElementPlus)
     .mount('#app')
 ```
+
+### 配置axios
+
+- 安装依赖
+
+```shell
+# axios
+npm install axios --save
+# qs
+npm install qs
+```
+
+*解决qs报错*
+
+```ts
+//  vite-env.d.ts
+declare module 'qs'
+```

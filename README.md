@@ -315,3 +315,51 @@ export default {
 // 在main.ts中引入样式文件
 import 'virtual:windi.css'
 ```
+
+### 配置element plus
+
+- 安装
+
+```shell
+# element plus
+npm install element-plus --save
+# element plus icon
+npm install @element-plus/icons-vue
+```
+
+- 配置
+
+```ts
+// src/plugins/element-plus.ts
+import {App} from 'vue'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import locale from 'element-plus/es/locale/lang/zh-cn'
+import * as Icons from '@element-plus/icons-vue'
+
+export default {
+    install(app: App) {
+        app.use(ElementPlus, {
+            locale,
+            size: 'default' || 'small' || 'large'
+        })
+        Object.keys(Icons).forEach((key: string) => {
+            app.component(key, Icons[key as keyof typeof Icons]);
+        })
+    }
+}
+```
+
+- 全局注册
+
+```ts
+import {createApp} from 'vue'
+import App from './App.vue'
+import router from './router'
+import ElementPlus from './plugins/element-plus'
+
+const app = createApp(App)
+
+app.use(ElementPlus)
+    .mount('#app')
+```

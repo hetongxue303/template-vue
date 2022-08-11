@@ -9,7 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@element-plus/icons-vue": "^2.0.8",
     "animate.css": "^4.1.1",
+    "element-plus": "^2.2.12",
     "nprogress": "^0.2.0",
     "reset.css": "^2.0.2",
     "vue": "^3.2.37",
